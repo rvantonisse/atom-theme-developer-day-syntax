@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Developer's Day Syntax</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+
+        font-family: 'Helvetica', sans-serif;
+        font-size: 1em;
+        line-height: 1.5;
+
+        color: white;
+        background-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="content" class="container" data-bind="app" title="main content">
+
+    </main>
+
+    <script type="text/javascript">
+      const stringer = 'string';
+
+      // This is a bad / invalid multiline string!
+      const multiString = 'af
+        bug
+        case
+      ';
+
+      function someFn(param) {
+
+        if (param === true) {
+          return undefined;
+        }
+
+        return param;
+      }
+
+    </script>
+  </body>
+</html>

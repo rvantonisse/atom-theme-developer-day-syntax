@@ -1,0 +1,286 @@
+/**
+ * Textmate's Language Grammer Naming Conventions
+ * https://macromates.com/manual/en/language_grammars#naming_conventions
+ * ===
+ * If a grammar or tree sitter is build with these
+ * naming conventions in mind syntax should be highlighted
+ * accordingly.
+ */
+
+// For comments
+.syntax--comment {
+  color: @syntax-comment-color;
+
+  // line comments,
+  // we specialize further so that the type of
+  // comment start character(s) can be extracted from the scope.
+  &.syntax--line {
+
+    // double-slash — // comment
+    &.syntax--double-slash {}
+
+    // double-dash — -- comment
+    &.syntax--double-dash {}
+
+    // number-sign — # comment
+    &.syntax--number-sign {}
+
+    // percentage — % comment
+    &.syntax--percentage {}
+
+    // other
+    &.syntax--character {}
+  }
+
+  // multi-line comments like
+  // /* … */ and <!-- … -->
+  &.syntax--block {
+    &.syntax--documentation {}
+  }
+}
+
+// various forms of constants.
+.syntax--constant {
+  color: @syntax-constant-color;
+
+  // numeric — those which represent numbers, e.g. 42, 1.3f, 0x4AB1U.
+  &.syntax--numeric {}
+
+  // character — those which represent characters, e.g. &lt;, \e, \031.
+  &.syntax--character {
+
+    // escape — escape sequences like \e would be constant.character.escape.
+    &.syntax--escape {}
+  }
+
+  // language — constants (generally) provided by the language which are “special” like true, false, nil, YES, NO, etc.
+  &.syntax--language {
+    color: @syntax-reserved-color;
+  }
+
+  // other — other constants, e.g. colors in CSS.
+  &.syntax--other {}
+}
+
+/**
+ * Entity
+ * ======
+ * An entity refers to a larger part of the document,
+ * for example a chapter, class, function, or tag.
+ * We do not scope the entire entity as entity.*
+ * (we use meta.* for that). But we do use entity.*
+ * for the “placeholders” in the larger entity,
+ * e.g. if the entity is a chapter,
+ * we would use entity.name.section for the chapter title.
+ */
+.syntax--entity {
+  color: @blue-400;
+
+  // we are naming the larger entity.
+  &.syntax--name {
+
+    // the name of a function.
+    &.syntax--function {}
+
+    // the name of a type declaration or class.
+    &.syntax--type {}
+
+    // a tag name.
+    &.syntax--tag {}
+
+    // the name is the name of a section/heading.
+    &.syntax--section {}
+  }
+
+  // other entities.
+  &.syntax--other {
+
+    // the superclass/baseclass name.
+    &.syntax--inherited-class {}
+    // the name of an attribute (mainly in tags).
+    &.syntax--attribute-name {}
+  }
+}
+
+/**
+ * Invalid
+ * =======
+ * Stuff which is “invalid”.
+ */
+.syntax--invalid {
+  color: @red-200;
+  background-color: @red-700;
+
+  // illegal, e.g. an ampersand or lower-than character in HTML (which is not part of an entity/tag).
+  &.syntax--illegal {}
+
+  // for deprecated stuff e.g. using an API function which is deprecated or using styling with strict HTML.
+  &.syntax--deprecated {}
+}
+
+/**
+ * Keyword
+ * =======
+ * keywords (when these do not fall into the other groups).
+ */
+.syntax--keyword {
+  color: @syntax-keyword-color;
+
+  // mainly related to flow control like continue, while, return, etc.
+  &.syntax--control {}
+
+  // operators can either be textual (e.g. or) or be characters.
+  &.syntax--operator {}
+
+  // other keywords.
+  &.syntax--other {}
+}
+
+/**
+ * Markup
+ * ======
+ * This is for markup languages and generally applies to
+ * larger subsets of the text.
+ */
+.syntax--markup {
+
+  // underlined text.
+  &.syntax--underline {
+
+    // this is for links, as a convenience this is derived from markup.underline so that if there is no theme rule which specifically targets markup.underline.link then it will inherit the underline style.
+    &.syntax--link {}
+  }
+
+  // bold text (text which is strong and similar should preferably be derived from this name).
+  &.syntax--bold {}
+
+  // a section header. Optionally provide the heading level as the next element, for example markup.heading.2.html for &lt;h2&gt;…&lt;/h2&gt; in HTML.
+  &.syntax--heading {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  // italic text (text which is emphasized and similar should preferably be derived from this name).
+  &.syntax--italic {}
+
+  // list items.
+  &.syntax--list {
+
+      // numbered list items.
+      &.syntax--numbered {}
+
+      // unnumbered list items.
+      &.syntax--unnumbered {}
+  }
+
+  // quoted (sometimes block quoted) text.
+  &.syntax--quote {}
+
+  // text which is verbatim, e.g. code listings. Normally spell checking is disabled for markup.raw.
+  &.syntax--raw {}
+
+  // other markup constructs.
+  &.syntax--other {}
+}
+
+/**
+ * Meta
+ * ====
+ * The meta scope is generally used to markup
+ * larger parts of the document. For example the entire line
+ * which declares a function would be meta.function
+ * and the subsets would be storage.type, entity.name.function,
+ * variable.parameter etc. and only the latter would be styled.
+ * Sometimes the meta part of the scope will be used
+ * only to limit the more general element that is styled,
+ * most of the time meta scopes are however used in
+ * scope selectors for activation of bundle items.
+ * For example in Objective-C there is a meta scope for
+ * the interface declaration of a class and the implementation,
+ * allowing the same tab-triggers to expand differently,
+ * depending on context.
+ */
+.syntax--meta {}
+
+// things relating to “storage”.
+.syntax--storage {
+  color: @red-400;
+
+  // the type of something, class, function, int, var, etc.
+  &.syntax--type {}
+
+  // a storage modifier like static, final, abstract, etc.
+  &.syntax--modifier {}
+}
+
+// strings.
+.syntax--string {
+  color: @syntax-string-color;
+
+  // quoted strings.
+  &.syntax--quoted {
+
+    // single quoted strings: 'foo'.
+    &.syntax--single {}
+
+    // double quoted strings: "foo".
+    &.syntax--double {}
+
+    // triple quoted strings: """Python""".
+    &.syntax--triple {}
+
+    // other types of quoting: $'shell', %s{...}.
+    &.syntax--other {}
+  }
+
+  // for things like here-docs and here-strings.
+  &.syntax--unquoted {}
+
+  // strings which are “evaluated”: `date`, $(pwd).
+  &.syntax--interpolated {}
+
+  // regular expressions: /(w+)/.
+  &.syntax--regexp {}
+
+  // other types of strings (should rarely be used).
+  &.syntax--other {}
+}
+
+// things provided by a framework or library should be below support.
+.syntax--support {
+  color: @syntax-reserved-color;
+
+  // functions provided by the framework/library. For example NSLog in Objective-C is support.function.
+  &.syntax--function {}
+
+  // when the framework/library provides classes.
+  &.syntax--class {}
+
+  // types provided by the framework/library, this is probably only used for languages derived from C, which has typedef (and struct). Most other languages would introduce new types as classes.
+  &.syntax--type {}
+
+  // constants (magic values) provided by the framework/library.
+  &.syntax--constant {}
+
+  // variables provided by the framework/library. For example NSApp in AppKit.
+  &.syntax--variable {}
+
+  // the above should be exhaustive, but for everything else use support.other.
+  &.syntax--other {}
+}
+
+// variables. Not all languages allow easy identification (and thus markup) of these.
+.syntax--variable {
+  color: @syntax-variable-color;
+
+  // when the variable is declared as the parameter.
+  &.syntax--parameter {}
+
+  // reserved language variables like this, super, self, etc.
+  &.syntax--language {
+    color: @syntax-reserved-color;
+  }
+
+  // other variables, like $some_variables.
+  &.syntax--other {}
+}

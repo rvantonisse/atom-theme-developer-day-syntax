@@ -1,0 +1,53 @@
+// These colors are specific to the theme. Do not use in a package!
+
+// Base colors
+@transparent-white: fade(@white, 50%);
+@white: #fff;
+@very-light-gray: #eee;
+@light-gray: #ccc;
+@gray: #999;
+@dark-gray: #666;
+@very-dark-gray: #333;
+@black: #000;
+@transparent-black: fade(@black, 50%);
+
+// Primary
+@primary: hsl(30, 100%, 10%);
+
+@red: spin(@primary, -60);
+@red-200: lighten(@red, 10%);
+@red-400: lighten(@red, 30%);
+@red-700: lighten(@red, 60%);
+@red-900: lighten(@red, 80%);
+
+@green: spin(@primary, 60);
+
+@blue: spin(@primary, 180);
+@blue-200: lighten(@blue, 10%);
+@blue-400: lighten(@blue, 30%);
+@blue-700: lighten(@blue, 60%);
+@blue-900: lighten(@blue, 80%);
+
+// Secondary
+@yellow: spin(@primary, 30);
+@yellow-200: lighten(@yellow, 10%);
+@yellow-400: lighten(@yellow, 30%);
+@yellow-700: lighten(@yellow, 60%);
+@yellow-900: lighten(@yellow, 80%);
+
+@aqua: spin(@primary, 90);
+@purple: spin(@primary, -90);
+
+// Tertiary
+@orange: @primary;
+@orange-200: lighten(@orange, 10%);
+@orange-400: lighten(@orange, 30%);
+@orange-700: lighten(@orange, 60%);
+@orange-900: lighten(@orange, 80%);
+
+@lime: spin(@primary, 45);
+@greenaqua: spin(@primary, 75);
+@blueaqua: #09c;
+@bluepurple: spin(@blue, 30);
+@bluepurple-400: lighten(@bluepurple, 50%);
+@redpurple: spin(@primary, -75);
