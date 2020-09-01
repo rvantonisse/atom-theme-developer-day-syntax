@@ -16,6 +16,12 @@ Types of changes:
 
 ## Unreleased [0.0.0]
 
+### Changed
+
+- Set both `@syntax-color-renamed` and `@syntax-color-modified` to `@syntax-color-info`
+
+## [v0.1.0] - 2020-09-01
+
 ### Added
 
 - Basic architecture for adding new syntax highlighting.
