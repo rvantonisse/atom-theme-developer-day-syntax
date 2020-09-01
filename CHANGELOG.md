@@ -11,6 +11,13 @@ Types of changes:
 - **Removed**; for now removed features.
 - **Fixed**; for any bug fixes.
 - **Security**; in case of vulnerabilities.
+
 ---
 
 ## Unreleased [0.0.0]
+
+### Added
+
+- Basic architecture for adding new syntax highlighting.
+- A Base syntax stylesheet adhering Textmate's Syntax Language naming conventions making this theme a perfect match with Textmate ported languages!
+- Initial language syntax files which should be specificly supported by this Developers Day syntax theme.
