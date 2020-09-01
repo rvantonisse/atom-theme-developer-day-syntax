@@ -90,12 +90,38 @@
           return undefined;
         }
 
+        for (var i = 0; i < param.items.length; i++) {
+          param.items[i];
+        }
+
         return param;
       }
 
       someFn('yolo');
       someFn(SOME_CONST);
       someFn(someVar, anotherVar);
+
+    </script>
+
+    <script context="module">
+      import Component, { utilityFn, html } from '@awesome/core';
+
+      class FormComponent extends Component {
+        constructor(super) {
+          super();
+        }
+
+        static props = {};
+
+        render(props, context) {
+          return html`
+            <form>
+              ${ props.children }
+              <Component />
+            </form>
+          `;
+        }
+      }
 
     </script>
   </body>

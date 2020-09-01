@@ -82,7 +82,9 @@
     color: @syntax-entity-color;
 
     // the name of a function.
-    &.syntax--function {}
+    &.syntax--function {
+      color: @syntax-function-color;
+    }
 
     // the name of a type declaration or class.
     &.syntax--type {}
@@ -104,7 +106,6 @@
     // the name of an attribute (mainly in tags).
     &.syntax--attribute-name {
       color: @syntax-constant-color;
-      font-weight: bold;
     }
   }
 }
@@ -131,15 +132,17 @@
  * keywords (when these do not fall into the other groups).
  */
 .syntax--keyword {
-  // color: @syntax-keyword-color;
+  font-weight: bold;
 
   // mainly related to flow control like continue, while, return, etc.
   &.syntax--control {
-    font-weight: bold;
+    color: @syntax-keyword-color;
   }
 
   // operators can either be textual (e.g. or) or be characters.
-  &.syntax--operator {}
+  &.syntax--operator {
+    color: @syntax-function-color;
+  }
 
   // other keywords.
   &.syntax--other {}
@@ -267,7 +270,7 @@
 
 // things provided by a framework or library should be below support.
 .syntax--support {
-  font-weight: bold;
+  color: @syntax-reserved-color;
 
   // when the framework/library provides classes.
   &.syntax--class {}
