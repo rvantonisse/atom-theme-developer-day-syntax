@@ -1,10 +1,11 @@
 {
-  "name": "developer-syntax",
+  "name": "developer-day-syntax",
   "theme": "syntax",
   "version": "0.0.0",
   "author": "RV Antonisse",
-  "description": "Accessible colored syntax themes for developers, workin day and night. Easy to the eyes.",
-  "repository": "https://github.com/rvantonisse/atom-theme-developer-syntax",
+  "description": "Accessible colored syntax theme for developers, workin day and night. Easy to the eyes.",
+  "keywords": ["accessibility", "syntax", "light"],
+  "repository": "https://github.com/rvantonisse/atom-theme-developer-day-syntax",
   "license": "MIT",
   "engines": {
     "atom": ">=1.50.0 <2.0.0"
