@@ -14,7 +14,7 @@ And it is super simple!
     <title>Developer's Syntax</title>
   </head>
   <body>
-
+    <p>Hello world!</p>
   </body>
 </html>
 ```
@@ -25,6 +25,9 @@ And it is super simple!
 @media screen and (max-width: 20em) {
   body {
     font-size: 1.25em;
+    color: unknown;
+    background-color: white;
+    unknown: property;
   }
 }
 ```
@@ -48,7 +51,9 @@ And it is super simple!
       "key": "value"
     },
     ["arrayInArray"]
-  ]
+  ],
+  "objectKey": {
+    "key": "value"
+  }
 }
-
 ```
