@@ -1,4 +1,44 @@
 // html syntax
 .syntax--html {
 
+  .syntax--meta {
+
+    &.syntax--tag.syntax--style,
+    &.syntax--tag.syntax--script {
+
+      & > .syntax--punctuation.syntax--definition.syntax--tag {
+        color: @syntax-variable-color;
+      }
+    }
+
+
+    &.syntax--attribute-with-value {
+
+      .syntax--string > .syntax--punctuation {
+        color: @syntax-constant-color;
+      }
+    }
+  }
+
+  .syntax--entity.syntax--name.syntax--tag {
+    font-weight: bold;
+
+    &.syntax--style,
+    &.syntax--script {
+      color: @syntax-variable-color;
+    }
+  }
+
+  .syntax--id > .syntax--string {
+    color: @syntax-reserved-color;
+  }
+
+  .syntax--class > .syntax--string {
+    color: @syntax-class-color;
+  }
+
+  .syntax--punctuation.syntax--definition.syntax--tag {
+    color: @syntax-entity-color;
+  }
+
 }

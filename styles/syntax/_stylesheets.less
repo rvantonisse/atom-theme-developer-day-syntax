@@ -3,4 +3,16 @@
 .syntax--less,
 .syntax--scss {
 
+  .syntax--entity {
+
+    &.syntax--other.syntax--attribute-name {
+
+      &.syntax--class {
+        color: @syntax-class-color;
+      }
+      &.syntax--id {
+        color: @syntax-reserved-color;
+      }
+    }
+  }
 }

@@ -1,6 +1,8 @@
 /**
  * Textmate's Language Grammer Naming Conventions
  * https://macromates.com/manual/en/language_grammars#naming_conventions
+ * @TODO: Add sublime text naming convention in the mix;
+ * https://www.sublimetext.com/docs/3/scope_naming.html
  * ===
  * If a grammar or tree sitter is build with these
  * naming conventions in mind syntax should be highlighted
@@ -74,10 +76,10 @@
  * we would use entity.name.section for the chapter title.
  */
 .syntax--entity {
-  color: @blue-400;
 
   // we are naming the larger entity.
   &.syntax--name {
+    color: @syntax-entity-color;
 
     // the name of a function.
     &.syntax--function {}
@@ -96,9 +98,14 @@
   &.syntax--other {
 
     // the superclass/baseclass name.
-    &.syntax--inherited-class {}
+    &.syntax--inherited-class {
+      color: @syntax-class-color;
+    }
     // the name of an attribute (mainly in tags).
-    &.syntax--attribute-name {}
+    &.syntax--attribute-name {
+      color: @syntax-constant-color;
+      font-weight: bold;
+    }
   }
 }
 
@@ -108,8 +115,8 @@
  * Stuff which is “invalid”.
  */
 .syntax--invalid {
-  color: @red-200;
-  background-color: @red-700;
+  color: @red-fg;
+  background-color: @red-bg;
 
   // illegal, e.g. an ampersand or lower-than character in HTML (which is not part of an entity/tag).
   &.syntax--illegal {}
@@ -124,10 +131,12 @@
  * keywords (when these do not fall into the other groups).
  */
 .syntax--keyword {
-  color: @syntax-keyword-color;
+  // color: @syntax-keyword-color;
 
   // mainly related to flow control like continue, while, return, etc.
-  &.syntax--control {}
+  &.syntax--control {
+    font-weight: bold;
+  }
 
   // operators can either be textual (e.g. or) or be characters.
   &.syntax--operator {}
@@ -148,7 +157,10 @@
   &.syntax--underline {
 
     // this is for links, as a convenience this is derived from markup.underline so that if there is no theme rule which specifically targets markup.underline.link then it will inherit the underline style.
-    &.syntax--link {}
+    &.syntax--link {
+      color: @blue-fg;
+      text-decoration: underline;
+    }
   }
 
   // bold text (text which is strong and similar should preferably be derived from this name).
@@ -204,10 +216,16 @@
 
 // things relating to “storage”.
 .syntax--storage {
-  color: @red-400;
+  color: @syntax-variable-color;
+  font-weight: bold;
 
   // the type of something, class, function, int, var, etc.
-  &.syntax--type {}
+  &.syntax--type {
+
+    &.syntax--function {
+      color: @syntax-function-color;
+    }
+  }
 
   // a storage modifier like static, final, abstract, etc.
   &.syntax--modifier {}
@@ -215,7 +233,8 @@
 
 // strings.
 .syntax--string {
-  color: @syntax-string-color;
+  // color: @syntax-string-color;
+  color: inherit;
 
   // quoted strings.
   &.syntax--quoted {
@@ -248,10 +267,7 @@
 
 // things provided by a framework or library should be below support.
 .syntax--support {
-  color: @syntax-reserved-color;
-
-  // functions provided by the framework/library. For example NSLog in Objective-C is support.function.
-  &.syntax--function {}
+  font-weight: bold;
 
   // when the framework/library provides classes.
   &.syntax--class {}
@@ -263,7 +279,12 @@
   &.syntax--constant {}
 
   // variables provided by the framework/library. For example NSApp in AppKit.
-  &.syntax--variable {}
+  &.syntax--function,
+
+  // functions provided by the framework/library. For example NSLog in Objective-C is support.function.
+  &.syntax--variable {
+    color: @syntax-reserved-color;
+  }
 
   // the above should be exhaustive, but for everything else use support.other.
   &.syntax--other {}
