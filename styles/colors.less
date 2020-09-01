@@ -1,53 +1,40 @@
-// These colors are specific to the theme. Do not use in a package!
+/**
+ *  THESE COLORS ARE SPECIFIC TO THE THEME.
+ *  DO NOT USE IN A PACKAGE!
+ */
 
-// Base colors
-@transparent-white: fade(@white, 50%);
-@white: #fff;
-@very-light-gray: #eee;
-@light-gray: #ccc;
-@gray: #999;
-@dark-gray: #666;
-@very-dark-gray: #333;
-@black: #000;
-@transparent-black: fade(@black, 50%);
+// hsl settings
+@hue-primary: 220;
+@saturation-base: 80%;
+@lightness-base: 55%;
 
-// Primary
-@primary: hsl(30, 100%, 10%);
+// Colors
+@red: hsl(350, @saturation-base, @lightness-base);
+@red-fg: darken(@red, 14%);
+@red-bg: lighten(@red, 40%);
 
-@red: spin(@primary, -60);
-@red-200: lighten(@red, 10%);
-@red-400: lighten(@red, 30%);
-@red-700: lighten(@red, 60%);
-@red-900: lighten(@red, 80%);
+@green: spin(@red, 120);
+@green-fg: darken(@green, 27%);
+@green-bg: lighten(@green, 40%);
 
-@green: spin(@primary, 60);
-
-@blue: spin(@primary, 180);
-@blue-200: lighten(@blue, 10%);
-@blue-400: lighten(@blue, 30%);
-@blue-700: lighten(@blue, 60%);
-@blue-900: lighten(@blue, 80%);
+@blue: spin(@green, 120);
+@blue-fg: darken(@blue, 10%);
+@blue-bg: lighten(@blue, 40%);
 
 // Secondary
-@yellow: spin(@primary, 30);
-@yellow-200: lighten(@yellow, 10%);
-@yellow-400: lighten(@yellow, 30%);
-@yellow-700: lighten(@yellow, 60%);
-@yellow-900: lighten(@yellow, 80%);
+@yellow: spin(@red, 60);
+@yellow-fg: darken(@yellow, 28%);
+@yellow-bg: lighten(@yellow, 44%);
 
-@aqua: spin(@primary, 90);
-@purple: spin(@primary, -90);
+@teal: spin(@yellow, 120);
+@teal-fg: darken(@teal, 27%);
+@teal-bg: lighten(@teal, 40%);
+
+@purple: spin(@teal, 120);
+@purple-fg: darken(@purple, 15%);
+@purple-bg: lighten(@purple, 40%);
 
 // Tertiary
-@orange: @primary;
-@orange-200: lighten(@orange, 10%);
-@orange-400: lighten(@orange, 30%);
-@orange-700: lighten(@orange, 60%);
-@orange-900: lighten(@orange, 80%);
-
-@lime: spin(@primary, 45);
-@greenaqua: spin(@primary, 75);
-@blueaqua: #09c;
-@bluepurple: spin(@blue, 30);
-@bluepurple-400: lighten(@bluepurple, 50%);
-@redpurple: spin(@primary, -75);
+@orange: spin(@red, 30);
+@orange-fg: darken(@orange, 15%);
+@orange-bg: lighten(@orange, 40%);
