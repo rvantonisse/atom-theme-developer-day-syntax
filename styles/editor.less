@@ -4,12 +4,13 @@ atom-text-editor {
   background-color: @syntax-background-color;
 
   .gutter-container {
-    border-right: solid 1px @syntax-gutter-border-color;
+    // border-right: solid 1px @syntax-gutter-border-color;
     background-color: @syntax-gutter-background-color;
   }
 
   .gutter {
     color: @syntax-gutter-text-color;
+    background-color: @syntax-gutter-background-color;
 
     &.line-numbers {
       .line-number {
@@ -36,26 +37,19 @@ atom-text-editor {
 
       &.git-line-added {
         color: @syntax-color-added;
+        background-color: lighten(@syntax-color-added, 65%);
       }
 
       &.git-line-modified {
         color: @syntax-color-modified;
+        background-color: lighten(@syntax-color-modified, 55%);
       }
     }
   }
 
   .lines {
-    .cursor-line,
-    .line:hover {
-      &::before {
-        position: absolute;
-        z-index: 0;
-        right: 0;
-        left: 0;
-        height: 1.5em;
-        content: "";
-        background-color: @syntax-selection-color;
-      }
+    .cursor-line {
+      background-color: lighten(@syntax-selection-color, 3%);
     }
   }
 
@@ -73,10 +67,12 @@ atom-text-editor {
   }
 
   .cursor {
+    border-width: 3px;
     border-color: @syntax-cursor-color;
     border-radius: @syntax-border-radius;
     min-width: 0.5em;
-    background-color: @syntax-selection-color;
+
+    background-color: fade(@syntax-selection-color, 50%);
   }
 
   .selection .region {
@@ -95,7 +91,7 @@ atom-text-editor {
   }
 
   .bracket-matcher .region {
-    border-style: dashed;
+    border-style: solid;
     border-width: 1px;
     border-color: @syntax-text-color;
     border-radius: @syntax-border-radius;
