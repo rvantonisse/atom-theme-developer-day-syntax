@@ -20,6 +20,7 @@ Types of changes:
 
 - Set both `@syntax-color-renamed` and `@syntax-color-modified` to `@syntax-color-info`
 - Make all foreground colors meet around contrast level 6.
+- Other syntax color changes; reducing blue's.
 
 ## [v0.1.0] - 2020-09-01
 
