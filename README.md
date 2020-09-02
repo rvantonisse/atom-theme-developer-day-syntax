@@ -1,4 +1,4 @@
-# Developer's Day
+# Developer's Day 🌞
 
 > (syntax preview image)
 
