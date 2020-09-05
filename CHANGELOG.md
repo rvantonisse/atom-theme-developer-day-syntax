@@ -18,6 +18,21 @@ Types of changes:
 
 ---
 
+## [v0.3.0] - 2020-09-05
+
+### Changed
+
+- Color pallette has been changed back to meet around 5.0 contrast ratio. More contrast gives less color.
+
+- Syntax variables have their colors shuffled.
+
+- HTML; Syntax highlighting looks final like.
+
+### Removed
+
+- Highlighting based on meta scopes. This proofed to be unreliable.
+---
+
 ## [v0.2.0] - 2020-09-02
 
 ### Changed
