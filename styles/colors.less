@@ -3,38 +3,27 @@
  *  DO NOT USE IN A PACKAGE!
  */
 
-// hsl settings
-@hue-primary: 220;
-@saturation-base: 80%;
-@lightness-base: 55%;
-
 // Colors
-@red: hsl(350, @saturation-base, @lightness-base);
-@red-fg: darken(@red, 13%);
-@red-bg: lighten(@red, 40%);
+// Primary
+@red-bg: hsl(345, 100%, 95%);
+@red-fg: lighten(@red-bg, -65%);
 
-@green: spin(@red, 120);
-@green-fg: darken(@green, 31%);
-@green-bg: lighten(@green, 40%);
+@green-bg: spin(@red-bg, 120);
+@green-fg: spin(@red-fg, 120);
 
-@blue: spin(@green, 120);
-@blue-fg: darken(@blue, 5%);
-@blue-bg: lighten(@blue, 40%);
+@blue-bg: spin(@green-bg, 120);
+@blue-fg: spin(@green-fg, 120);
 
 // Secondary
-@yellow: spin(@red, 60);
-@yellow-fg: darken(@yellow, 31%);
-@yellow-bg: lighten(@yellow, 44%);
+@yellow-bg: spin(@red-bg, 60);
+@yellow-fg: spin(@red-fg, 60);
 
-@teal: spin(@yellow, 120);
-@teal-fg: darken(@teal, 31%);
-@teal-bg: lighten(@teal, 40%);
+@teal-bg: spin(@yellow-bg, 120);
+@teal-fg: spin(@yellow-fg, 120);
 
-@purple: spin(@teal, 120);
-@purple-fg: darken(@purple, 13%);
-@purple-bg: lighten(@purple, 40%);
+@purple-bg: spin(@teal-bg, 120);
+@purple-fg: spin(@teal-fg, 120);
 
 // Tertiary
-@orange: spin(@red, 30);
-@orange-fg: darken(@orange, 19%);
-@orange-bg: lighten(@orange, 40%);
+@orange-bg: spin(@red-bg, 30);
+@orange-fg: spin(@red-fg, 30);
