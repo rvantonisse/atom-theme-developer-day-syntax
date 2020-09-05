@@ -5,8 +5,8 @@
 
 // General colors
 // Editor
-@syntax-text-color: hsl(hue(@orange-fg), 50%, 20%);
-@syntax-background-color: @yellow-bg;
+@syntax-text-color: hsl(hue(@orange-fg), 50%, 30%);
+@syntax-background-color: lighten(@yellow-bg, 4%);
 
 @syntax-invisible-character-color: @yellow-fg;
 @syntax-cursor-color: @syntax-text-color;
@@ -15,12 +15,13 @@
 // Syntax base colors
 @syntax-comment-color: @yellow-fg;
 @syntax-string-color: @syntax-text-color;
-@syntax-constant-color: @blue-fg;
-@syntax-keyword-color: @green-fg;
+@syntax-constant-color: @teal-fg;
+@syntax-keyword-color: @syntax-text-color;
 @syntax-reserved-color: @purple-fg;
 @syntax-entity-color: @red-fg;
-@syntax-class-color: @orange-fg;
-@syntax-function-color: @teal-fg;
+@syntax-attribute-color: @yellow-fg;
+@syntax-class-color: @green-fg;
+@syntax-function-color: @blue-fg;
 @syntax-variable-color: @orange-fg;
 @syntax-storage-color: @red-fg;
 
