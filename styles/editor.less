@@ -1,6 +1,6 @@
 atom-text-editor {
   color: @syntax-text-color;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   background-color: @syntax-background-color;
 
   .gutter-container {
@@ -20,6 +20,7 @@ atom-text-editor {
 
     .line-number {
       opacity: 1;
+      height: 1.5em;
 
       &.cursor-line {
         background-color: @syntax-gutter-background-color-selected;
@@ -37,16 +38,31 @@ atom-text-editor {
 
       &.git-line-added {
         color: @syntax-color-added;
-        background-color: lighten(@syntax-color-added, 65%);
+        background-color: @background-color-added;
       }
 
       &.git-line-modified {
         color: @syntax-color-modified;
-        background-color: lighten(@syntax-color-modified, 50%);
+        background-color: @background-color-modified;
+      }
+
+      &.git-line-removed {
+        position: relative;
+
+        &:before {
+          position: absolute;
+          top: auto !important;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          overflow-y: hidden;
+          content: "";
+          background-color: @syntax-color-removed;
+        }
       }
     }
   }
-
   .lines {
     .cursor-line {
       background-color: lighten(@syntax-selection-color, 3%);
@@ -66,13 +82,16 @@ atom-text-editor {
     background-color: transparent;
   }
 
-  .cursor {
-    border-width: 3px;
+  .cursors > .cursor {
+    opacity: 1;
+    border-width: 2px;
     border-color: @syntax-cursor-color;
     border-radius: @syntax-border-radius;
-    min-width: 0.5em;
+    min-width: 0.75em !important;
 
-    background-color: fade(@syntax-selection-color, 50%);
+    background-color: fade(@syntax-background-color, 75%);
+    transform: translate3d(0, 0 ,0); /* Separate render layer */
+    transition: opacity 200ms ease;
   }
 
   .selection .region {
