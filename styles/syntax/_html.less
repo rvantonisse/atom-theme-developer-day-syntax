@@ -1,44 +1,40 @@
 // html syntax
 .syntax--html {
 
-  .syntax--meta {
+  .syntax--entity {
 
-    &.syntax--tag.syntax--style,
-    &.syntax--tag.syntax--script {
+    &.syntax--name.syntax--tag {
 
-      & > .syntax--punctuation.syntax--definition.syntax--tag {
+      &.syntax--style,
+      &.syntax--script {
         color: @syntax-function-color;
       }
     }
 
+    &.syntax--other.syntax--attribute-name {
+      font-weight: bold;
 
-    &.syntax--attribute-with-value {
+      &.syntax--id {
+        color: @syntax-reserved-color;
 
-      .syntax--string > .syntax--punctuation {
-        color: @syntax-constant-color;
+        & + .syntax--punctuation + .syntax--string {
+          color: @syntax-reserved-color;
+        }
+      }
+
+      &.syntax--class {
+        color: @syntax-class-color;
+
+        & + .syntax--punctuation + .syntax--string {
+          color: @syntax-class-color;
+        }
       }
     }
   }
 
-  .syntax--entity.syntax--name.syntax--tag {
-    font-weight: bold;
-
-    &.syntax--style,
-    &.syntax--script {
-      color: @syntax-function-color;
-    }
-  }
-
-  .syntax--id > .syntax--string {
-    color: @syntax-reserved-color;
-  }
-
-  .syntax--class > .syntax--string {
-    color: @syntax-class-color;
-  }
-
   .syntax--punctuation.syntax--definition.syntax--tag {
     color: @syntax-entity-color;
+    font-weight: bold;
   }
 
 }
