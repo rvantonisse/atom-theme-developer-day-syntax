@@ -31,33 +31,6 @@
 // For comments
 .syntax--comment {
   color: @syntax-comment-color;
-
-  // line comments,
-  // we specialize further so that the type of
-  // comment start character(s) can be extracted from the scope.
-  &.syntax--line {
-
-    // double-slash — // comment
-    &.syntax--double-slash {}
-
-    // double-dash — -- comment
-    &.syntax--double-dash {}
-
-    // number-sign — # comment
-    &.syntax--number-sign {}
-
-    // percentage — % comment
-    &.syntax--percentage {}
-
-    // other
-    &.syntax--character {}
-  }
-
-  // multi-line comments like
-  // /* … */ and <!-- … -->
-  &.syntax--block {
-    &.syntax--documentation {}
-  }
 }
 
 // various forms of constants.
@@ -78,9 +51,6 @@
   &.syntax--language {
     color: @syntax-reserved-color;
   }
-
-  // other — other constants, e.g. colors in CSS.
-  &.syntax--other {}
 }
 
 /**
@@ -126,7 +96,11 @@
     }
     // the name of an attribute (mainly in tags).
     &.syntax--attribute-name {
-      color: @syntax-class-color;
+      color: @syntax-attribute-color;
+
+      & + .syntax--punctuation + .syntax--string {
+        color: @syntax-attribute-color;
+      }
     }
   }
 }
@@ -153,17 +127,14 @@
  * keywords (when these do not fall into the other groups).
  */
 .syntax--keyword {
+  color: @syntax-keyword-color;
   font-weight: bold;
 
   // mainly related to flow control like continue, while, return, etc.
-  &.syntax--control {
-    color: @syntax-keyword-color;
-  }
+  &.syntax--control {}
 
   // operators can either be textual (e.g. or) or be characters.
-  &.syntax--operator {
-    color: @syntax-class-color;
-  }
+  &.syntax--operator {}
 
   // other keywords.
   &.syntax--other {}
@@ -310,4 +281,8 @@
 
   // other variables, like $some_variables.
   &.syntax--other {}
+}
+
+.syntax--punctuation {
+  font-weight: bold;
 }
