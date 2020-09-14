@@ -89,7 +89,8 @@ atom-text-editor {
     min-width: 0.75em !important;
 
     background-color: fade(@syntax-background-color, 75%);
-    transform: translate3d(0, 0 ,0); /* Separate render layer */
+    transform: translate3d(0, 0 ,0); /* Separate render layer, gets overiden by atom */
+    will-change: opacity; /* Set this instead to force a new layer */
     transition: opacity 200ms ease;
   }
 
