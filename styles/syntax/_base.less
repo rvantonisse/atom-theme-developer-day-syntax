@@ -127,14 +127,17 @@
  * keywords (when these do not fall into the other groups).
  */
 .syntax--keyword {
-  color: @syntax-keyword-color;
   font-weight: bold;
 
   // mainly related to flow control like continue, while, return, etc.
-  &.syntax--control {}
+  &.syntax--control {
+    color: @syntax-keyword-color;
+  }
 
   // operators can either be textual (e.g. or) or be characters.
-  &.syntax--operator {}
+  &.syntax--operator {
+    color: @syntax-storage-color;
+  }
 
   // other keywords.
   &.syntax--other {}
