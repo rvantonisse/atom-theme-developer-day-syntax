@@ -18,6 +18,21 @@ Types of changes:
 
 ---
 
+## [v0.4.0] - 2020-09-14
+
+### Fixed
+
+- The Cursor transition caused the editor background to flicker. To fix this `will-change: opacity;` was set to add the cursor on a separate render layer.
+
+### Changed
+
+- Darkened orange to better distinct from red.
+- class attribute and css selector to orange.
+- Dimmed text and comment color.
+- Keywords also have a distinctive syntax color; green for control and red for oparators.
+
+---
+
 ## [v0.3.0] - 2020-09-05
 
 ### Changed
