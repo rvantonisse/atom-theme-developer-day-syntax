@@ -5,7 +5,7 @@
 
 // General colors
 // Editor
-@syntax-text-color: hsl(hue(@orange-fg), 50%, 30%);
+@syntax-text-color: hsl(hue(@orange-fg), 30%, 30%);
 @syntax-background-color: lighten(@yellow-bg, 4%);
 
 @syntax-invisible-character-color: @yellow-fg;
@@ -13,7 +13,7 @@
 @syntax-selection-color: @blue-bg;
 
 // Syntax base colors
-@syntax-comment-color: @yellow-fg;
+@syntax-comment-color: lighten(@syntax-text-color, 15%);
 @syntax-string-color: @syntax-text-color;
 @syntax-constant-color: @teal-fg;
 @syntax-keyword-color: @green-fg;
